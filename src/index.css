@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App {
+  height: 100vh;
+}
+
+.Navbar {
+  background-color: blueviolet;
+  display: flex;
+  height: 10%;
+}
+.logo-icon {
+  flex-grow: 3;
+}
+.Register {
+  flex-grow: 2;
+}
+.SignIn {
+  flex-grow: 2;
+}
+.Home {
+  height: 75%;
+}
+.Footer {
+  background-color: grey;
+  height: 15%;
+}
