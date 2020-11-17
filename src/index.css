@@ -24,10 +24,10 @@ code {
   flex-grow: 3;
 }
 .Register {
-  flex-grow: 2;
+  height: 75%;
 }
 .SignIn {
-  flex-grow: 2;
+  height: 75%;
 }
 .Home {
   height: 75%;

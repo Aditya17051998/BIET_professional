@@ -4,7 +4,7 @@ class Home extends Component {
     render() {
         return (
             <div className="Home">
-                home containt
+                Welcome to your BIET professional community
             </div>
         );
     }
