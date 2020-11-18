@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App {
+  height: 100vh;
+}
+
+.Navbar {
+  display: flex;
+  background-color:black;
+  height: 10%;
+  color: aliceblue;
+}
+.logo-icon {
+  height:100%;
+  width: 10%; 
+
+
+}
+.logo-icon img{
+  margin-left: 1%;
+  height:90%;
+  width: 70%; 
+}
+
+.SignUp{
+  margin-left: 60%;
+  height:100%;
+  width: 10%;
+
+}
+.SignIn {
+  margin-left: 10%;
+  height:100%;
+  width: 10%;
+}
+.Home {
+  height: 75%;
+}
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(64 52 52);
+  height: 20%;
+  color: aliceblue;
+  font-size: 10px;
+}
