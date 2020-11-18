@@ -5,6 +5,7 @@ class SignIn extends Component {
         return (
             <div className="SignIn">
                 SignIn
+                signIn
             </div>
         );
     }

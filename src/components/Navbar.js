@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Register from './Signup';
 import SignIn from './SignIn';
 import SignUp from './Signup';
+import Register from './Register';
+import SignIn from './SignIn';
 
 class Navbar extends Component {
     render() {
@@ -12,6 +14,12 @@ class Navbar extends Component {
                 </div>
                 <div className="SignUp"><SignUp/></div>
                 <div className="SignIn"><SignIn/></div>
+                <div className="logo-icon"> logo icon
+
+                </div>
+                
+                <Register />
+                <SignIn />
                 
             </div>
         );
