@@ -24,15 +24,38 @@ code {
   flex-grow: 3;
 }
 .Register {
-  height: 75%;
+  height: 73%;
 }
 .SignIn {
-  height: 75%;
+  height: 73%;
 }
 .Home {
-  height: 75%;
+  height: 73%;
+  overflow-y: scroll;
 }
 .Footer {
   background-color: grey;
-  height: 15%;
+  height: 17%;
+}
+.left-footer {
+  display: inline-block;
+}
+.right-footer {
+  display: inline-block;
+  float:right;
+}
+
+.each-slide {
+  height :50vh;
+  width :100vw;
+}
+.slide-content div {
+  top: 0px;
+  left:0px;
+
+}
+.slide-content div img {
+  height :50vh;
+  width :100vw;
+  opacity: 0.3;
 }
