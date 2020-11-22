@@ -4,7 +4,7 @@ const initialAuth = {
     user : {},
     error :null,
     isLoggedIn : false,
-    inProgress : false ,
+    inProgress : false,
 };
 
 export default function Auth(state=initialAuth,action){

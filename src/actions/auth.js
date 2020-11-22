@@ -1,5 +1,6 @@
 import {LOGIN_START,LOGIN_SUCCESS,LOGIN_FAILED,SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS} from '../actions/actiontype';
 
+///////// all action creater should be dispached///////////
 export function startLogin(){
     return {
         type: LOGIN_START,
@@ -54,6 +55,7 @@ export function login(email,password){
 }
 export function signup(email, password, confirmPassword, name) {
     return (dispatch) => {
+      dispatch(startSingup());
       const url = "http://codeial.com:8000/api/v2/users/signup";
       fetch(url, {
         method: 'POST',
@@ -72,7 +74,7 @@ export function signup(email, password, confirmPassword, name) {
            //console.log('data', data);
           if (data.success) {
             // do something
-            localStorage.setItem('token', data.data.token);
+            localStorage.setItem('token', data.data.token);  //////set token in locall storage
             dispatch(signupSuccessful(data.data.user));
             return;
           }

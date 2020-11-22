@@ -24,7 +24,7 @@ class Register extends Component {
           const { email, password, confirmPassword, name } = this.state;
       
           if (email && password && confirmPassword && name) {
-            this.props.dispatch(startSingup());
+            //this.props.dispatch(startSingup());
             this.props.dispatch(signup(email, password, confirmPassword, name));
           }
         };
