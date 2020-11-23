@@ -1,4 +1,6 @@
-import {LOGIN_START,LOGIN_SUCCESS,LOGIN_FAILED,SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS} from '../actions/actiontype';
+import {LOGIN_START,LOGIN_SUCCESS,LOGIN_FAILED,
+  SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS,
+  AUTHENTICATE_USER,LOG_OUT} from '../actions/actiontype';
 
 ///////// all action creater should be dispached///////////
 export function startLogin(){
@@ -17,6 +19,11 @@ export function loginSuccess(user){
         type: LOGIN_SUCCESS,
         user
     };
+}
+export function logout(){
+  return {
+    type : LOG_OUT,
+  };
 }
 
 export function getFormBody(params){
@@ -45,6 +52,7 @@ export function login(email,password){
             console.log('data',data);
             if(data.success){
                 //// dispatch action to save user
+                localStorage.setItem('token', data.data.token);
                 dispatch(loginSuccess(data.data.user));
                 return;
             }
@@ -71,7 +79,7 @@ export function signup(email, password, confirmPassword, name) {
       })
         .then((response) => response.json())
         .then((data) => {
-           //console.log('data', data);
+           console.log('data', data);
           if (data.success) {
             // do something
             localStorage.setItem('token', data.data.token);  //////set token in locall storage
@@ -102,3 +110,11 @@ export function signup(email, password, confirmPassword, name) {
       user,
     };
   }
+
+  export default function authenticate(user){
+    return {
+      type : AUTHENTICATE_USER,
+      user,
+    };
+  }
+  

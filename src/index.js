@@ -6,7 +6,10 @@ import App from './components/App';
 import configureStore from './store';
 
 
+
 const store = configureStore();  ////// configureStore is defind in index.js of store folder
+
+
 
 ReactDOM.render(
     <Provider store={store}>

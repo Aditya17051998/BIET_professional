@@ -1,23 +1,52 @@
 import React, { Component } from 'react';
-import Register from './Register';
-import SignIn from './SignIn';
-import {BrowserRouter as Router,Link,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Route,Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logout} from '../actions/auth';
 
 class Navbar extends Component {
+    
+        log_out=(e)=>{
+            e.preventDefault();
+            localStorage.removeItem('token');
+            this.props.dispatch(logout());
+            
+    
+        }
+    
     render() {
+        const {auth} = this.props;
+        //const {isLoggedIn,inProgress} = this.props.auth;
         return (
                 <div className="Navbar">
                    <div className="logo-icon"> 
+                    {/* <Link to="/">logo icon</Link> */}
                     logo icon
                    </div>
-                
-                   <Link to="/signIn">SignIn</Link>
-                   <Link to="/signUp">SignUp</Link>
+                   {!auth.isLoggedIn &&
+                   (<div>
+                       <Link to="/signIn">SignIn</Link>
+                       <Link to="/signUp">SignUp</Link>
+                   </div>)
+                   }
                    
-                
-                </div>
+                {auth.isLoggedIn && 
+                (<div>
+                    <form>
+                        <input type="text" placeholder="search a friend" />
+                        <button type="submit">search</button>
+                    </form>
+                    <h1>{auth.user.name}</h1>
+                    <Link onClick={this.log_out}>Logout</Link>
+                </div>)
+                }
+           </div>
         );
     }
 }
 
-export default Navbar;
+function mapStateToProps(state){
+    return {
+        auth:state.auth,
+    };
+}
+export default connect(mapStateToProps)(Navbar);

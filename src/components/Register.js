@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect} from 'react-redux';
 import { startSingup, signup } from '../actions/auth';
+import { Redirect } from 'react-router-dom';
 
 class Register extends Component {
         constructor(props) {
@@ -25,11 +26,17 @@ class Register extends Component {
       
           if (email && password && confirmPassword && name) {
             //this.props.dispatch(startSingup());
+            ///// dispatch this signup action creater in which we call api
             this.props.dispatch(signup(email, password, confirmPassword, name));
           }
         };
 
     render() {
+        
+        const {isLoggedIn,inProgress} = this.props.auth;
+         if(isLoggedIn){
+             return <Redirect to="/user/home" />;
+         }
         return (
             <form className="Register">
                 <input type="text" placeholder="enter your name"
@@ -50,7 +57,9 @@ class Register extends Component {
     }
 }
 
-const mapStateToProps = ({ auth }) => ({
+/////to map store to component
+
+const mapStateToProps = ({ auth }) => ({  
     auth,
   });
   

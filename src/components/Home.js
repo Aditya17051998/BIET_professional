@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import HomeSlideShow from './HomeSlideShow';
+import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
@@ -11,6 +13,10 @@ class Home extends Component {
     }
 
     render() {
+        const {isLoggedIn,inProgress} = this.props.auth;
+         if(isLoggedIn){
+             return <Redirect to="/user/home" />;
+         }
         return (
             <div className="Home">
                 Welcome to your BIET professional community
@@ -34,5 +40,9 @@ class Home extends Component {
         );
     }
 }
-
-export default Home;
+function mapStateToProps(state){
+    return {
+        auth:state.auth,
+    };
+}
+export default connect(mapStateToProps)(Home);
