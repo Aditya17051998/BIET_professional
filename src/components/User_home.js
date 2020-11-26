@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Friends from './Friends';
 import Postlist from './Postlist';
+import Create_post from './Create_post';
 
 
 class User_home extends Component {
@@ -16,11 +17,7 @@ class User_home extends Component {
         
         return (
           <div>
-            <form className="make-post">
-              <input type="text" placeholder="write something here"/>
-              <button type="submit">Post</button>
-
-            </form>
+            <Create_post />
             <Postlist post={post} />
             <Friends />
             

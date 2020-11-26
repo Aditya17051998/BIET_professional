@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Postlist extends Component {
     render() {
         const {post}=this.props;
+        console.log('post_list',post);
         return (
             <div className="posts-list">
           {post.map(post=>(

@@ -35,7 +35,7 @@ class Navbar extends Component {
                         <input type="text" placeholder="search a friend" />
                         <button type="submit">search</button>
                     </form>
-                    <h1>{auth.user.name}</h1>
+                    <Link to="/user/edit"><h3>{auth.user.name}</h3></Link>
                     <Link onClick={this.log_out}>Logout</Link>
                 </div>)
                 }

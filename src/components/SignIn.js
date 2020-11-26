@@ -16,7 +16,7 @@ class SignIn extends Component {
     emailHandler=(e)=>{
         this.setState({
             email:e.target.value,
-        })
+        });
 
     }
     passHandler=(e)=>{

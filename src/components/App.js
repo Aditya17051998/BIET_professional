@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './Footer';
-import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Redirect,Route,Switch} from 'react-router-dom';
 import Home from './Home';
 import Navbar from './Navbar';
 import SignIn from './SignIn';
@@ -10,6 +10,16 @@ import authenticate from '../actions/auth';
 import {connect} from 'react-redux';
 import User_home from './User_home';
 import { fetchPosts } from '../actions/post';
+import Edit_user from './Edit_user';
+
+const PrivateRoute =(props)=>{
+    const {path,component: Component ,isLoggedIn} = props;
+    return <Route path={path} render={(props)=>{
+        return isLoggedIn?<Component {...props}/>:<Redirect to="/signIn"/>;
+    
+      }} />
+
+}
 
 class App extends Component {
     componentDidMount() {
@@ -29,6 +39,8 @@ class App extends Component {
 
        }
     }
+
+    
     
     render() {
         const {isLoggedIn,inProgress} = this.props.auth;
@@ -42,6 +54,7 @@ class App extends Component {
                      <Route exact path="/signIn" component={SignIn} />
                      <Route exact path="/signUp" component={Register} />
                      <Route exact path="/user/home" component={User_home} />
+                     <PrivateRoute path="/user/edit" component={Edit_user} isLoggedIn={isLoggedIn} />
 
                    </Switch>
                    
