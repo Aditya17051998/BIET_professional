@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 import User_home from './User_home';
 import { fetchPosts } from '../actions/post';
 import Edit_user from './Edit_user';
+import UserProfile from './UserProfile';
 
 const PrivateRoute =(props)=>{
     const {path,component: Component ,isLoggedIn} = props;
@@ -38,6 +39,8 @@ class App extends Component {
         }));
 
        }
+
+       
     }
 
     
@@ -55,6 +58,7 @@ class App extends Component {
                      <Route exact path="/signUp" component={Register} />
                      <Route exact path="/user/home" component={User_home} />
                      <PrivateRoute path="/user/edit" component={Edit_user} isLoggedIn={isLoggedIn} />
+                     <PrivateRoute path="/user/profile/:userId" component={UserProfile} isLoggedIn={isLoggedIn} />
 
                    </Switch>
                    

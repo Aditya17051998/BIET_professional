@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Postlist extends Component {
     render() {
@@ -10,7 +11,7 @@ class Postlist extends Component {
               <div className="post-wrapper" key={post._id}>
                 <div className="post-header">
                   <div className="post-avatar">
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/2747/2747872.svg"/>
+                  <Link to={`/user/profile/${post.user._id}`}><img src="https://www.flaticon.com/svg/static/icons/svg/2747/2747872.svg"/></Link>
                     <div>
                        <span className="post-author">{post.user.name}</span>
                        <span className="post-time">a min ago</span>

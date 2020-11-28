@@ -9,6 +9,7 @@ export const LOG_OUT='LOG_OUT';
 export const FETCH_POST='FETCH_POST';
 export const ADD_POST='ADD_POST';
 export const EDIT_PROFILE='EDIT_PROFILE';
+export const USER_PROFILE='USER_PROFILE';
 
 
 
