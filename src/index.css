@@ -218,3 +218,6 @@ this is temporary
   top:10vh;
   left:85vw;
 }
+@keyframes scrolling{
+  0% {transform: translateX(15vw);}
+}

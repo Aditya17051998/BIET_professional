@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';   ////use it if you want to connect state 
 import './index.css';
 import App from './components/App';
 import configureStore from './store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

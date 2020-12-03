@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Footer from './Footer';
 import {BrowserRouter as Router,Link,Redirect,Route,Switch} from 'react-router-dom';
 import Home from './Home';
-import Navbar from './Navbar';
 import SignIn from './SignIn';
 import Register from './Register';
 import jwt_decode from 'jwt-decode';
@@ -12,6 +11,7 @@ import User_home from './User_home';
 import { fetchPosts } from '../actions/post';
 import Edit_user from './Edit_user';
 import UserProfile from './UserProfile';
+import Navbar_home from './Navbar_home';
 
 const PrivateRoute =(props)=>{
     const {path,component: Component ,isLoggedIn} = props;
@@ -51,7 +51,7 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                   <Navbar />
+                   <Navbar_home />
                    <Switch>
                      <Route exact path="/" component={Home} />
                      <Route exact path="/signIn" component={SignIn} />

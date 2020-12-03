@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import {login} from '../actions/auth'
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import {
+    Container, Col, Form,
+    FormGroup, Label, Input,
+    Button,
+  } from 'reactstrap';
 
 
 
@@ -41,6 +46,34 @@ class SignIn extends Component {
              return <Redirect to="/user/home" />;
          }
         return (
+        //     <Container className="App">
+        //     <h2>Sign In</h2>
+        //     <Form className="form">
+        //       <Col>
+        //         <FormGroup>
+        //           <Label>Email</Label>
+        //           <Input
+        //             type="email"
+        //             name="email"
+        //             id="exampleEmail"
+        //             placeholder="myemail@email.com"
+        //           />
+        //         </FormGroup>
+        //       </Col>
+        //       <Col>
+        //         <FormGroup>
+        //           <Label for="examplePassword">Password</Label>
+        //           <Input
+        //             type="password"
+        //             name="password"
+        //             id="examplePassword"
+        //             placeholder="********"
+        //           />
+        //         </FormGroup>
+        //       </Col>
+        //       <Button>Submit</Button>
+        //     </Form>
+        //   </Container>
             <form className="SignIn">
 
                 <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/>

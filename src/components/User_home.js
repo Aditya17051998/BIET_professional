@@ -16,7 +16,7 @@ class User_home extends Component {
         }
         
         return (
-          <div>
+          <div style={{height:"73vh",overflowY:"scroll"}}>
             <Create_post />
             <Postlist post={post} />
             <Friends />

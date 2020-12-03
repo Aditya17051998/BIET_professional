@@ -11,6 +11,7 @@ class Register extends Component {
             password: '',
             name: '',
             confirmPassword: '',
+            isAluminia:false,
           };
         }
       
@@ -19,9 +20,15 @@ class Register extends Component {
             [field]: value,
           });
         };
+        handleAluminia=(e)=>{
+          this.setState({
+            isAluminia:true,
+          })
+        }
       
         onFormSubmit = (e) => {
           e.preventDefault();
+          console.log('signup state',this.state);
           const { email, password, confirmPassword, name } = this.state;
       
           if (email && password && confirmPassword && name) {
@@ -51,6 +58,9 @@ class Register extends Component {
                 <input type="password" placeholder="confirm password"
                 onChange={(e) => this.handleInputChange('confirmPassword', e.target.value)}
                 />
+                <div>
+                <input type="checkbox" onClick={this.handleAluminia}/><span>Register as alumini</span>
+                </div>
                 <button type="submit" onClick={this.onFormSubmit}>Register</button>
             </form>
         );
