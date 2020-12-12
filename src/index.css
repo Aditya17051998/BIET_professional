@@ -13,6 +13,7 @@ code {
 }
 .App {
   height: 100vh;
+  background-color: rgb(239, 238, 247);
 }
 
 .Navbar {
@@ -23,11 +24,13 @@ code {
 .logo-icon {
   flex-grow: 3;
 }
-.Register {
+.register {
   height: 73%;
+  overflow: hidden;
 }
-.SignIn {
+.signin {
   height: 73%;
+  overflow: hidden;
 }
 .Home {
   height: 73%;
@@ -36,18 +39,67 @@ code {
 .Footer {
   background-color: grey;
   height: 17%;
+  color:white;
+  /* display: flex;
+  justify-content: space-between; */
 }
 .left-footer {
   display: inline-block;
+  margin-left: 10vw;
 }
 .right-footer {
   display: inline-block;
+  margin-right: 10vw;
   float:right;
+}
+
+.site-header {
+  
+}
+.site-header-content {
+  background-color: rgb(74, 74, 201);
+  color:white;
+
+}
+.alumini {
+  background-color: rgb(74, 74, 201);;
+}
+.alumini-item {
+  background-color: rgb(64, 115, 224);
+  margin: 2px;
+  color:white;
+  padding-left: 5px;
+}
+.dashboard-header {
+  background-color: rgb(64, 115, 224);
+  color: azure;
+  margin-bottom: 10px;
+
+}
+.dashboard-item-container {
+  margin-left: 10px;
+  
+}
+.user-info {
+  margin-bottom:5px;
+  padding-left:10px ;
+}
+.user-info:hover {
+  background-color: rgb(64, 115, 224);
+  border-radius: 5px;
+
 }
 
 .each-slide {
   height :50vh;
   width :100vw;
+}
+.slide-content h1 {
+  position: absolute;
+  font-size: 50;
+  font-weight: 900;
+  top:10vh;
+  left:10%;
 }
 .slide-content div {
   top: 0px;
@@ -59,6 +111,101 @@ code {
   width :100vw;
   opacity: 0.3;
 }
+/* abhisek patel style */
+
+.Register {
+  margin-top: 5%;
+  margin-left: 25%;
+  width:50% ;
+  text-align: center;
+  height:70%;
+  border-radius: 4px 4px 4px 4px;
+  border:1px solid #2be2c5;
+
+}
+.inputbox {
+  width:70%;
+  height:12%;
+  border-radius: 4px 4px 4px 4px;
+  border:1px solid #2be2c5;
+  margin-bottom: 10px;
+}
+.Register button{
+  background-color: rgb(10, 209, 53);
+  color:white;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 4%;
+  border:1px solid #2be2c5;
+}
+.Register_SignIn{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40%;
+  margin-right:2%;
+  margin-top: 1%;
+  height: 100%;
+}
+.sign{
+  margin-left: 2%;
+}
+.sign a
+{
+  text-decoration: none;
+   color: #eceffa;
+}
+.SignIn {
+  margin-top: 5%;
+  margin-left: 25%;
+  padding-top: 3%;
+  width:50% ;
+  text-align: center;
+  height:60%;
+  border-radius: 4px 4px 4px 4px;
+  border:1px solid #2be2c5;
+}
+.SignIn input{
+  width:70%;
+  height:15%;
+  border-radius: 4px 4px 4px 4px;
+  border:1px solid #2be2c5;
+  margin-bottom: 3%;
+}
+.SignIn button{
+  background-color: rgb(8, 204, 83);
+  color:white;
+  border-radius: 4px 4px 4px 4px;
+  margin-top: 5%;
+  border:1px solid #2be2c5;
+}
+.search-bar
+{
+  display: flex;
+  height:100% ;
+  width: 50%;
+}
+.Search{
+  padding: 1%;
+  height:100% ;
+  width: 30%;
+}
+.Search input{
+  border-radius: 6px 6px 6px 6px; 
+  border: 1px solid #2be2c5;
+
+  height:70%;
+  display: inline-block;
+}
+.Search button{
+  height:70%;
+  border-radius: 6px 6px 6px 6px; 
+  border: 1px solid #2be2c5;
+  background-color: red;
+  color: #eceffa;
+}
+
+
+
+/* bahisek style finish */
 
 /* 
 
@@ -66,7 +213,7 @@ this is temporary
 */
 
 .posts-list {
-  width:70%;
+  width:50%;
   margin-left: 8%;
 }
 .post-wrapper {
@@ -115,7 +262,7 @@ this is temporary
   color: #424242;
   margin-top: 15px;
 }
-.post-actions {
+/* .post-actions {
   padding: 5px;
   display: flex;
   border: 1px solid #e0e0e0;
@@ -206,7 +353,7 @@ this is temporary
 }
 .post-comments-list .comment-like img:hover {
   cursor: pointer;
-}
+} */
 
 /* 
 
@@ -214,9 +361,20 @@ this is temporary
 .friend_list {
   position: fixed;
   height:73vh;
-  width: 15vw;
+  width: 25vw;
   top:10vh;
-  left:85vw;
+  left:75vw;
+}
+.suggestion {
+  margin-bottom: 3px;
+  background-color: rgb(72, 23, 207);
+  color: azure;
+}
+.friendlist {
+  margin-bottom: 3px;
+  background-color: rgb(72, 23, 207);
+  color: azure;
+
 }
 @keyframes scrolling{
   0% {transform: translateX(15vw);}

@@ -77,7 +77,7 @@ const Navbar_home = (props) => {
            };
  
   const {isLoggedIn,inProgress,user} =props.auth;
-
+  //src={`http://localhost:7000${user.avatar}`}
   return (
     <div>
       <Navbar color="dark" light expand="md">
@@ -94,6 +94,7 @@ const Navbar_home = (props) => {
             </NavItem>
             {isLoggedIn && (
               <UncontrolledDropdown nav inNavbar>
+                <img src={`http://localhost:7000${user.avatar}`}/>
               <DropdownToggle nav caret style={{marginLeft:"10vw",color:"white"}}>
               {user.name}
               </DropdownToggle>

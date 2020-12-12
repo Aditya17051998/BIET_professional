@@ -74,15 +74,26 @@ class SignIn extends Component {
         //       <Button>Submit</Button>
         //     </Form>
         //   </Container>
-            <form className="SignIn">
+            // <form className="SignIn">
 
-                <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/>
-                <input type="password" placeholder="enter your password" onChange={this.passHandler} value={this.state.password}/>
+            //     <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/>
+            //     <input type="password" placeholder="enter your password" onChange={this.passHandler} value={this.state.password}/>
+            //     {inProgress?<button type="submit" onClick={this.handleFormSubmit} disabled>login...</button>:
+            //     <button type="submit" onClick={this.handleFormSubmit}>login</button>
+            //     }
+
+            // </form>
+         <div className="signin">
+                         <form className="SignIn">
+                 <h1><b>Please Login First</b></h1>
+                <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/><br/>
+                <input type="password" placeholder="enter your password" onChange={this.passHandler} value={this.state.password}/><br/>
                 {inProgress?<button type="submit" onClick={this.handleFormSubmit} disabled>login...</button>:
-                <button type="submit" onClick={this.handleFormSubmit}>login</button>
+                <button type="submit" onClick={this.handleFormSubmit}>Login</button>
                 }
 
             </form>
+         </div>
                 
         );
     }

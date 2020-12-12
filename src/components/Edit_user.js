@@ -15,6 +15,8 @@ class Edit_user extends Component {
                 password:'',
                 confirm_password:'',
                 editMode:false,
+                image:'',
+                email:this.props.auth.user.email,
             }
     }
     
@@ -51,7 +53,8 @@ class Edit_user extends Component {
     saveProfile=(e)=>{
         e.preventDefault();
         const {user}=this.props.auth;
-        this.props.dispatch(editProfile(this.state.name,this.state.password,this.state.confirm_password,user._id));
+        console.log(user,'useriddtas');
+        this.props.dispatch(editProfile(this.state.name,this.state.image,user._id));
         console.log(this.state);
     }
     render() {
@@ -74,6 +77,11 @@ class Edit_user extends Component {
                 {this.state.editMode ? <input type="text" placeholder="city name"
                 onChange={(e)=>this.changeHandle('city',e.target.value)}/> :
                 <p>{this.state.city}</p>
+                }
+                {/*////////////////// user image update   ///////////////////////// */}
+                {this.state.editMode ? <input type="file" 
+                onChange={(e)=>this.changeHandle('image',e.target.files[0])}/> :
+                <p>{this.state.image}</p>
                 }
                 {this.state.editMode ? <select onClick={(e)=>this.setYear(e.target.value)}>
                     <option value="1" >1</option>

@@ -12,6 +12,8 @@ import { fetchPosts } from '../actions/post';
 import Edit_user from './Edit_user';
 import UserProfile from './UserProfile';
 import Navbar_home from './Navbar_home';
+import { fetchFriends } from '../actions/friends';
+import {fetchAlumini, fetchUsers} from '../actions/UserDashBoard';
 
 const PrivateRoute =(props)=>{
     const {path,component: Component ,isLoggedIn} = props;
@@ -25,6 +27,9 @@ const PrivateRoute =(props)=>{
 class App extends Component {
     componentDidMount() {
         this.props.dispatch(fetchPosts());
+        this.props.dispatch(fetchUsers());
+        this.props.dispatch(fetchAlumini());
+        
         const token = localStorage.getItem('token');
 
         if(token){
@@ -37,6 +42,7 @@ class App extends Component {
          _id:decode._id
 
         }));
+        //this.props.dispatch(fetchFriends());
 
        }
 

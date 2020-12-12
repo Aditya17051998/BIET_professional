@@ -18,7 +18,7 @@ class Postlist extends Component {
                     </div>
                   </div>
                   <div className="post-content">{post.content}</div>
-                  <div className="post-actions">
+                  {/* <div className="post-actions">
                     <div className="post-like">
                       <img src="https://www.flaticon.com/svg/static/icons/svg/1077/1077035.svg"/>
                       <span>{post.likes.length}</span>
@@ -44,7 +44,7 @@ class Postlist extends Component {
                       </div>
 
                     </div>
-                  </div>
+                  </div> */}
 
                 </div>
               </div>

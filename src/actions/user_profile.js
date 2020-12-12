@@ -1,3 +1,5 @@
+import { USER_PROFILE } from "./actiontype";
+
 export function getAuthTokenFromLocal(){
     return localStorage.getItem('token');
 }
@@ -18,9 +20,17 @@ export function getUserProfile(userId){
             return response.json();
         })
         .then((data) => {
-            console.log('data',data);
-            //dispatch(fetchPost(data.data.user));
+            // console.log('data',data);
+            dispatch(fetchUserProfile(data.data.user));
+            //return data.data.user;
         });
     };
 
+}
+
+export function fetchUserProfile(user){
+    return {
+        type:USER_PROFILE,
+        user,
+    }
 }

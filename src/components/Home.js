@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Figure from 'react-bootstrap/Figure';
 import logo from '../images/logo_name.png';
+import UserDashBoard from './UserDashBoard';
+import Alumini from './Alumini';
+import Dashboard from './Dashboard';
 
 class Home extends Component {
     constructor(props){
@@ -16,6 +19,7 @@ class Home extends Component {
 
     render() {
         const {isLoggedIn,inProgress} = this.props.auth;
+        console.log('aluminilist',this.props.alumini);
          if(isLoggedIn){
              return <Redirect to="/user/home" />;
          }
@@ -33,35 +37,20 @@ class Home extends Component {
                     <HomeSlideShow image_urls={this.state.image_urls} />
                 </div>
         <div className="main-section">
-                    <div className="alumni" style={{width:"90vw",height:"20vh",border:"2px solid red",margin:"auto",overflow:"hidden",marginTop:"10px"}}>
-                 
-                     {
-                     this.props.post.map(item=>(
-                         <div style={{animation:"scrolling 2s linear infinite alternate both ",display:"inline-block",border:"3px solid black",height:"20vh",width:"15vw"}}>
-                        jnvdfngk
-                        </div>
-                     ))
-                     }
-                    </div>
-            <div className="dashboard-and-page-content" style={{border:"5px solid black",display:"flex",position:"relative",top:"15px"}}>
-                    <div className="dashboard" style={{height:"100vh",width:"30vw",border:"1px solid green",display:"flex",flexDirection:"column"}}>
-                        <div className="dashboard-header" style={{height:"10vh"}}>
-                            <h1>get connected</h1>
-                        </div>
-                        <div className="dashboard-item-container" style={{border:"5px solid red",height:"90vh"}}>
-                        </div>
+            <Alumini alumini={this.props.alumini}/>
+            <div className="dashboard-and-page-content" style={{border:"1px solid black",display:"flex",position:"relative",top:"15px"}}>
 
-                    </div>
+                    <Dashboard userslist={this.props.userslist}/>
 
-                    <div className="page-body" style={{height:"100vh",width:"68vw",border:"1px solid blue",display:"flex",flexDirection:"column"}}>
-                        <div style={{display:"flex",flexDirection:"row",border:"1px solid blue",}}>
+                    <div className="page-body" style={{height:"100vh",width:"68vw",display:"flex",flexDirection:"column"}}>
+                        <div style={{display:"flex",flexDirection:"row"}}>
                             <h1 style={{height:"25vh",width:"30vw"}}>find job and internship </h1>
                             <div style={{height:"25vh",width:"35vw"}}>
                                 <img style={{height:"20vh",width:"30vw"}} src="https://i.pinimg.com/originals/2d/6d/78/2d6d78cb202b3771de194b3a68be706c.jpg"/>
                            </div>
                        </div> 
 
-                       <div style={{display:"flex",flexDirection:"row",border:"1px solid blue",}}>
+                       <div style={{display:"flex",flexDirection:"row"}}>
                             <h1 style={{height:"25vh",width:"30vw"}}>learn new skills </h1>
                             <div style={{height:"25vh",width:"35vw",overflow:"hidden"}}>
                                 <img style={{height:"20vh",width:"30vw"}} src="https://images.squarespace-cdn.com/content/v1/54c5833fe4b0afdbad29260b/1422807406972-PA0OUVLFNRRVRYO1851E/ke17ZwdGBToddI8pDm48kCXTj-Wg2hUyCvG2gzcUO0xZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIhOXlA9L12Qv-lL7yMcQywOLKXa8ZlKWbVYnhV3J29G8/LEARN.png"/>
@@ -83,9 +72,12 @@ class Home extends Component {
     }
 }
 function mapStateToProps(state){
+    console.log('statelist all',state);
     return {
         auth:state.auth,
         post:state.post,
+        userslist:state.userslist,
+        alumini:state.alumini,
     };
 }
 export default connect(mapStateToProps)(Home);

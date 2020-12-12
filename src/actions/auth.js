@@ -1,6 +1,6 @@
 import {LOGIN_START,LOGIN_SUCCESS,LOGIN_FAILED,
   SIGNUP_FAILED,SIGNUP_START,SIGNUP_SUCCESS,
-  AUTHENTICATE_USER,LOG_OUT} from '../actions/actiontype';
+  AUTHENTICATE_USER,LOG_OUT, EDIT_PROFILE} from '../actions/actiontype';
 
 ///////// all action creater should be dispached///////////
 export function startLogin(){
@@ -44,7 +44,8 @@ export function getAuthTokenFromLocal(){
 export function login(email,password){
     return (dispatch)=>{
         dispatch(startLogin());
-        const url="http://codeial.com:8000/api/v2/users/login";
+        //const url="http://codeial.com:8000/api/v2/users/login";
+        const url="http://localhost:7000/api/v1/user/create-session";
         fetch(url,{
             method:'POST',
             headers:{
@@ -54,7 +55,7 @@ export function login(email,password){
         })
         .then(response=>response.json())
         .then(data=>{
-            console.log('data',data);
+            console.log('data_user_signin',data);
             if(data.success){
                 //// dispatch action to save user
                 localStorage.setItem('token', data.data.token);
@@ -66,10 +67,11 @@ export function login(email,password){
     }
 
 }
-export function signup(email, password, confirmPassword, name) {
+export function signup(email, password, confirmPassword, name,isAluminia) {
     return (dispatch) => {
       dispatch(startSingup());
-      const url = "http://codeial.com:8000/api/v2/users/signup";
+      // const url = "http://codeial.com:8000/api/v2/users/signup";
+      const url="http://localhost:7000/api/v1/user/signup";
       fetch(url, {
         method: 'POST',
         headers: {
@@ -80,6 +82,7 @@ export function signup(email, password, confirmPassword, name) {
           password,
           confirm_password: confirmPassword,
           name,
+          aluminia:isAluminia,
         }),
       })
         .then((response) => response.json())
@@ -160,38 +163,51 @@ export function signup(email, password, confirmPassword, name) {
     };
   }
 
-  export function editProfile(name,password,confirmPassword,UserId){
+  export function editProfile(name,image,UserId){
     return (dispatch)=>{
-      const url='http://codeial.com:8000/api/v2/users/edit';
+      // const url='http://codeial.com:8000/api/v2/users/edit';
+      const url=`http://localhost:7000/api/v1/user/edit/${UserId}`
+      var data=new FormData();
+      data.append('avatar',image);
+      data.append('name',name);
+      //data.append('email',image);
       fetch(url,{
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-           Authorization: `Bearer ${getAuthTokenFromLocal()}`,
+          Accept: '*/*',
+          //  Authorization: `Bearer ${getAuthTokenFromLocal()}`,
         },
-        body: getFormBody({
-          name,
-          password,
-          confirm_password:confirmPassword,
-          id:UserId,
-        }),
+        // body: getFormBody({
+        //   name,
+        //   password,
+        //   confirm_password:confirmPassword,
+        //   id:UserId,
+        // }),
+        body:data,
 
       })
       .then((response)=>response.json())
       .then(data=>{
         console.log('edit profile data',data);
-        // if(data.success){
-        //   dispatch(editUserSuccess(data.data.user));
-        //   if(data.data.token){
-        //     localStorage.setItem('token',data.data.token);
+         if(data.success){
+           dispatch(editUserSuccess(data.data.user));
+         if(data.data.token){
+            localStorage.setItem('token',data.data.token);
   
-        //   }
-        //   return;
-        // }
+          }
+          return;
+         }
         
         // dispatch(editUserFail(data.message));
       });
 
     };
+  }
+
+  export function editUserSuccess(user){
+    return {
+      type:EDIT_PROFILE,
+      user,
+    }
   }
   
