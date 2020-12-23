@@ -62,7 +62,7 @@ export function login(email,password){
                 dispatch(loginSuccess(data.data.user));
                 return;
             }
-            dispatch(loginFaild(data.messege));
+            dispatch(loginFaild(data.message));
         })
     }
 
@@ -163,13 +163,15 @@ export function signup(email, password, confirmPassword, name,isAluminia) {
     };
   }
 
-  export function editProfile(name,image,UserId){
+  export function editProfile(name,image,UserId,skills,year){
     return (dispatch)=>{
       // const url='http://codeial.com:8000/api/v2/users/edit';
       const url=`http://localhost:7000/api/v1/user/edit/${UserId}`
       var data=new FormData();
       data.append('avatar',image);
       data.append('name',name);
+      data.append('skills',skills);
+      data.append('year',year);
       //data.append('email',image);
       fetch(url,{
         method: 'POST',

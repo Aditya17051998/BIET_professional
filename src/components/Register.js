@@ -34,13 +34,16 @@ class Register extends Component {
           if (email && password && confirmPassword && name) {
             //this.props.dispatch(startSingup());
             ///// dispatch this signup action creater in which we call api
+            
             this.props.dispatch(signup(email, password, confirmPassword, name,isAluminia));
           }
+          
+          
         };
 
     render() {
         
-        const {isLoggedIn,inProgress} = this.props.auth;
+        const {isLoggedIn,error,inProgress} = this.props.auth;
          if(isLoggedIn){
              return <Redirect to="/user/home" />;
          }
@@ -79,6 +82,9 @@ class Register extends Component {
                 onChange={(e) => this.handleInputChange('confirmPassword', e.target.value)}
                 /><br/>
                 <input type="checkbox" onClick={this.handleAluminia}/><span>Register as alumini</span><br/>
+                {error && (
+                    <div style={{color:"red"}}>{error}</div>
+                )}
                 <button type="submit" onClick={this.onFormSubmit}>Register</button>
             </form>
             </div>

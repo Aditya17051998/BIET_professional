@@ -5,10 +5,11 @@ import { getUserProfile } from '../actions/user_profile';
 class Friendlist extends Component {
     render() {
         const {friend}=this.props;
-        console.log(friend.to_user);
-        this.props.dispatch(getUserProfile(friend));
+        console.log(friend);
+        //this.props.dispatch(getUserProfile(friend));
         return (
             <div className="friendlist">
+                
                  <h3>{friend.to_user.name}</h3>
                  <h6>{friend.to_user.email}</h6>
             </div>

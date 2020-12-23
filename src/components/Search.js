@@ -23,6 +23,7 @@ class Search extends Component {
     handleChange=(e)=>{
         this.setState({
             name:e.target.value,
+            isFilter:false,
         })
     }
     handleSearch=(e)=>{
@@ -34,6 +35,10 @@ class Search extends Component {
         });
         ////////// dispatch function to api call
         this.props.dispatch(searchResult(this.state.name));
+        this.setState({
+            name:'',
+        })
+        
 
         
         
@@ -44,7 +49,7 @@ class Search extends Component {
         console.log('search result',search);
         return (
             <div>
-                <div style={{display:"flex"}}><input type="text" onChange={this.handleChange} placeholder="search a friend" style={{marginLeft:"40vw"}}/> 
+                <div style={{display:"flex"}}><input type="text" onChange={this.handleChange} placeholder="search a friend" style={{marginLeft:"40vw"}} value={this.state.name}/> 
                 <button type="submit" onClick={this.handleSearch}>search</button>
                 {search.result.length>0 && this.state.isFilter && (<select onClick={this.handleSearch}> filter
                     <option value="0">Show all</option>
@@ -58,13 +63,13 @@ class Search extends Component {
                 )}
                 </div>
                 
-                    {search.result.length>0 && this.state.isFilter && (<div className="search-result" style={{position:"fixed",zIndex:"20",width:"40vw",left:"50vw",top:"15vh",height:"30vh",overflow:"scroll",background:"blue",color:"white"}}>
+                    {search.result.length>0 && this.state.isFilter && (<div className="search-result" style={{position:"fixed",zIndex:"20",width:"40vw",left:"45vw",top:"10vh",height:"35vh",overflowY:"scroll",background:"rgb(167, 168, 242)"}}>
                     
                     <SearchItem result={search} />
 
                     </div>)}
 
-                    {search.result.length<1 && this.state.isFilter && (<div className="search-result" style={{position:"fixed",zIndex:"20",width:"40vw",left:"50vw",top:"15vh",height:"10vh"}}><h2> No result found</h2></div>)
+                    {search.result.length<1 && this.state.isFilter && (<div className="search-result" style={{position:"fixed",zIndex:"20",width:"40vw",left:"45vw",top:"10vh",height:"15vh",background:"rgb(167, 168, 242)"}}><h2 style={{marginLeft:"20%",marginTop:"7%"}}> No result found</h2></div>)
 
                     }
        

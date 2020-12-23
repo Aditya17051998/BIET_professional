@@ -6,7 +6,8 @@ import search from './search';
 import friends from './friends';
 import profile from './user';
 import userslist from './userslist';
-import alumini from './alumini'
+import alumini from './alumini';
+import dashboard from './dashboard';
 
 export default combineReducers({
     auth,
@@ -16,4 +17,5 @@ export default combineReducers({
     profile,
     userslist,
     alumini,
+    dashboard,
 });

@@ -94,10 +94,13 @@ const Navbar_home = (props) => {
             </NavItem>
             {isLoggedIn && (
               <UncontrolledDropdown nav inNavbar>
-                <img src={`http://localhost:7000${user.avatar}`}/>
-              <DropdownToggle nav caret style={{marginLeft:"10vw",color:"white"}}>
+              <div className="profile-logo" style={{marginLeft:"8vw",display:"flex",alignItems:"center"}}>
+              <img src={`http://localhost:7000${user.avatar}`} style={{height:"30px",borderRadius:"50%"}}/>
+              <DropdownToggle nav caret style={{marginLeft:"5px",color:"white"}}>
               {user.name}
               </DropdownToggle>
+
+              </div>
               <DropdownMenu right>
                 <DropdownItem>
                 <Link to="/user/edit">Profile</Link>

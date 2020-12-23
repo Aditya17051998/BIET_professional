@@ -37,11 +37,16 @@ class SignIn extends Component {
         if(email && password){
             this.props.dispatch(login(email,password));
         }
+        this.setState({
+            email:'',
+            password:'',
+
+        })
     }
     
 
     render() {
-         const {isLoggedIn,inProgress} = this.props.auth;
+         const {isLoggedIn,inProgress,error} = this.props.auth;
          if(isLoggedIn){
              return <Redirect to="/user/home" />;
          }
@@ -88,6 +93,9 @@ class SignIn extends Component {
                  <h1><b>Please Login First</b></h1>
                 <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/><br/>
                 <input type="password" placeholder="enter your password" onChange={this.passHandler} value={this.state.password}/><br/>
+                {error && (
+                    <div style={{color:"red"}}>{error}</div>
+                )}
                 {inProgress?<button type="submit" onClick={this.handleFormSubmit} disabled>login...</button>:
                 <button type="submit" onClick={this.handleFormSubmit}>Login</button>
                 }

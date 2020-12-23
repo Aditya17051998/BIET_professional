@@ -36,8 +36,19 @@ code {
   height: 73%;
   overflow-y: scroll;
 }
+.edit-user {
+  height: 73%;
+  overflow-y: scroll;
+}
+.user-profile-info {
+  height:100vh;
+  border: 1px solid blue;
+  width:80vw;
+  margin-top: 10vh;
+  margin-left: 10vw;
+}
 .Footer {
-  background-color: grey;
+  background-color: #280502;;
   height: 17%;
   color:white;
   /* display: flex;
@@ -57,13 +68,27 @@ code {
   
 }
 .site-header-content {
+  background-color: #0f9488;
+  color:white;
+  /* margin-top: 5px; */
+}
+.site-header-content h1{
+  margin-top: 1%;
+  font-size:50px;
+}
+.alumini {
+  margin-top: 2%;
+  background-color: #0f9488;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* .site-header-content {
   background-color: rgb(74, 74, 201);
   color:white;
 
 }
 .alumini {
   background-color: rgb(74, 74, 201);;
-}
+} */
 .alumini-item {
   background-color: rgb(64, 115, 224);
   margin: 2px;
@@ -89,8 +114,41 @@ code {
   border-radius: 5px;
 
 }
-
+.slide-container{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .each-slide {
+  height :60vh;
+  text-align: center;
+  width :100vw;
+
+}
+.slide-content div h1 {
+
+  position: relative;
+  top: 100px;
+  
+  font-size: 100px;
+   align-items: center;
+   
+ 
+
+}
+.slide-content div {
+  position: relative;
+  top: 5px;
+  left:0px;
+  
+ 
+  
+}
+.slide-content div img {
+  height :55vh;
+  width :100vw;
+  opacity: 0.3;
+}
+
+/* .each-slide {
   height :50vh;
   width :100vw;
 }
@@ -110,7 +168,7 @@ code {
   height :50vh;
   width :100vw;
   opacity: 0.3;
-}
+} */
 /* abhisek patel style */
 
 .Register {
@@ -358,17 +416,24 @@ this is temporary
 /* 
 
 */
+.make-post {
+  width:60vw;
+  margin-left: 8vw;
+  margin-top: 5vh;
+}
 .friend_list {
   position: fixed;
-  height:73vh;
   width: 25vw;
   top:10vh;
   left:75vw;
 }
 .suggestion {
   margin-bottom: 3px;
+  height:8vh;
   background-color: rgb(72, 23, 207);
   color: azure;
+  display: flex;
+  align-items: center;
 }
 .friendlist {
   margin-bottom: 3px;
@@ -378,4 +443,54 @@ this is temporary
 }
 @keyframes scrolling{
   0% {transform: translateX(15vw);}
+}
+
+#homedashboard{
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.homedashboardhead{
+	background-color: #3816b4;
+	height: 15vh;
+	width: 70%;
+  margin-left: 15%;
+  color:white;
+  padding-top: 2.5vh;
+	
+}
+.sortTab span:hover {
+  background-color: #3f8f42;
+  cursor: pointer;
+  
+
+}
+.homedashboardhead h1 {
+  margin-left: 25%;
+  font-size: 60px;
+}
+
+.homedashboard{
+	display: flex;
+	flex-direction: row;
+	background-color: #3f8f42;
+	align-items: center;
+	height: 80px;
+	width: 70%;
+  margin: 2px;
+  color:white;
+	
+}
+.homedashboard:hover{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.homedashboard div button{
+	background-color: rgb(223, 81, 81);
+	border-radius: 8px 8px 8px 8px;
+	height:35px;
+	width: 150px;
+	color: white;
+
 }

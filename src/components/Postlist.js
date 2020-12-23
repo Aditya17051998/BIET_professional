@@ -1,22 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import { deletePost, fetchPosts } from '../actions/post';
 
 class Postlist extends Component {
+    componentDidMount() {
+      this.props.dispatch(fetchPosts());
+      
+    }
+    // componentDidUpdate(prevProps, prevState) {
+    //   this.props.dispatch(fetchPosts());
+      
+    // }
+    
+    
+      handleDelete=async (postId)=>{
+      await this.props.dispatch(deletePost(postId));
+      await this.props.dispatch(fetchPosts());
+      console.log('postidhere',postId);
+
+    }
     render() {
-        const {post}=this.props;
+        const {post,auth}=this.props;
         console.log('post_list',post);
         return (
             <div className="posts-list">
           {post.map(post=>(
               <div className="post-wrapper" key={post._id}>
                 <div className="post-header">
+                
                   <div className="post-avatar">
                   <Link to={`/user/profile/${post.user._id}`}><img src="https://www.flaticon.com/svg/static/icons/svg/2747/2747872.svg"/></Link>
                     <div>
                        <span className="post-author">{post.user.name}</span>
                        <span className="post-time">a min ago</span>
+
                     </div>
                   </div>
+                  {post.user._id===auth.user._id && (
+                         <button style={{float:"right"}} onClick={(e)=>this.handleDelete(post._id)}>delete Post</button>
+                       )}
                   <div className="post-content">{post.content}</div>
                   {/* <div className="post-actions">
                     <div className="post-like">
@@ -54,4 +77,10 @@ class Postlist extends Component {
     }
 }
 
-export default Postlist;
+function mapStateToProps(state){
+  return {
+      auth:state.auth,
+      post:state.post,
+  };
+}
+export default connect(mapStateToProps)(Postlist);

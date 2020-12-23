@@ -38,11 +38,11 @@ class Home extends Component {
                 </div>
         <div className="main-section">
             <Alumini alumini={this.props.alumini}/>
-            <div className="dashboard-and-page-content" style={{border:"1px solid black",display:"flex",position:"relative",top:"15px"}}>
+            <div className="dashboard-and-page-content" style={{display:"flex",position:"relative",top:"15px"}}>
 
                     <Dashboard userslist={this.props.userslist}/>
 
-                    <div className="page-body" style={{height:"100vh",width:"68vw",display:"flex",flexDirection:"column"}}>
+                    <div className="page-body" style={{height:"100vh",width:"68vw",display:"flex",flexDirection:"column",padding:"15px"}}>
                         <div style={{display:"flex",flexDirection:"row"}}>
                             <h1 style={{height:"25vh",width:"30vw"}}>find job and internship </h1>
                             <div style={{height:"25vh",width:"35vw"}}>
