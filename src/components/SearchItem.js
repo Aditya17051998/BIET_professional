@@ -9,7 +9,7 @@ class searchItem extends Component {
                 {
                     result.result.map(item=>(
                         <div style={{marginLeft:"15px"}}>
-                        <Link to={`/user/profile/${item._id}`}><h3>{item.name}</h3></Link>
+                        <Link to={`/user/profile/${item._id}`} ><h3>{item.name}</h3></Link>
                         <h1>{item.email}</h1>
                         </div>
                         

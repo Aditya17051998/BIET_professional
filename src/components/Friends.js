@@ -15,7 +15,7 @@ class Friends extends Component {
             <div className="friend_list" style={{height:"71.8vh",overflowY:"scroll",overflowX:"hidden"}}>
                 <div style={{display:"flex",flexDirection:"column"}}>
                     <h1 style={{background:"green",color:"white",height:"10vh",paddingLeft:"10px"}}>Friends</h1>
-                    <div style={{marginTop:"-10px",height:"70vh",backgroundColor:"rgb(153, 204, 255)",overflowY:"scroll"}}>
+                    <div style={{marginTop:"-10px",maxHeight:"70vh",backgroundColor:"rgb(153, 204, 255)",overflowY:"scroll"}}>
                         {
                             
                                 friends.filter(sugg=>sugg._id!==auth.user._id).map((friend)=>(
@@ -31,7 +31,7 @@ class Friends extends Component {
                 </div>
                 <div style={{display:"flex",flexDirection:"column"}}>
                     <h1 style={{background:"green",height:"10vh",paddingLeft:"10px",color:"white"}}>Suggestions</h1>
-                    <div style={{height:"70vh",border:"1px solid blue",backgroundColor:"rgb(153, 204, 255)", marginTop:"-10px",overflowY:"scroll"}}>
+                    <div style={{maxHeight:"60vh",border:"1px solid blue",backgroundColor:"rgb(153, 204, 255)", marginTop:"-10px",overflowY:"scroll"}}>
                     {
                             
                             suggestion.filter(sugg=>sugg._id!==auth.user._id).map((suggestion)=>(

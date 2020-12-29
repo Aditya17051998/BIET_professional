@@ -8,7 +8,8 @@ class UserProfile extends Component {
     constructor(props){
         super(props);
         this.state={
-            isFriend:false,
+            isFriend:true,
+            notFriend:true,
         }
     }
     
@@ -33,6 +34,7 @@ class UserProfile extends Component {
         this.props.dispatch(addFriends(this.props.match.params.userId));
         this.setState({
             isFriend:true,
+            notFriend:false,
         });
         
 
@@ -41,6 +43,7 @@ class UserProfile extends Component {
         this.props.dispatch(removeFriends(this.props.match.params.userId));
         this.setState({
             isFriend:false,
+            notFriend:true,
         });
 
     }
@@ -83,11 +86,14 @@ class UserProfile extends Component {
                                 <h1>{profile.name}</h1>
                                 <p>{profile.email}</p>
                                 </div>
-                                {/* <button style={{float:"right",marginRight:"5vw"}} onClick={()=>this.edit(this.state.editMode)}>edit profile</button> */}
-                                {index>-1 ?<button style={{float:"right",marginRight:"5vw"}} onClick={this.handleRemoveFriend}>Remove friend</button> :!this.state.isFriend ?
-                               <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleAddFriend}>Add Friend</button>:
-                               <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleRemoveFriend}>Remove friend</button>
-                                 }
+                                
+                                {
+                                 index<0 && this.state.notFriend ? <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleAddFriend}>Add friend</button>:!this.state.notFriend?
+                                 <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleRemoveFriend}>Remove friend</button>:index>-1 && this.state.isFriend ?
+                                 <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleRemoveFriend}>Remove friend</button>:
+                                 <button style={{float:"right",marginRight:"5vw"}} onClick={this.handleAddFriend}>Add friend</button>
+                                }
+                            
                             </div>
                         </div>
                         <div style={{height:"59vh",display:"flex",justifyContent:"space-around"}}>
