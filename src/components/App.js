@@ -15,6 +15,7 @@ import Navbar_home from './Navbar_home';
 import { fetchFriends } from '../actions/friends';
 import {fetchAlumini, fetchDashboard, fetchUsers} from '../actions/UserDashBoard';
 import DashBoard_page from './DashBoard_page';
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css.map";
 
 const PrivateRoute =(props)=>{
     const {path,component: Component ,isLoggedIn} = props;
@@ -48,6 +49,7 @@ class App extends Component {
          skills:decode.skills,
 
         }));
+        
         
         
 

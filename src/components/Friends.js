@@ -5,8 +5,12 @@ import Suggestion from '../components/Suggestion';
 
 class Friends extends Component {
     render() {
-        const {friends,suggestion}=this.props;
-        console.log('friends list here',friends);
+        const {friends,suggestion,auth}=this.props;
+        // const index=suggestion.findIndex(friend=>friend._id===auth._id);
+        // const newList = suggestion.splice(index, 1);
+        
+
+        console.log('friends list here',suggestion);
         return (
             <div className="friend_list" style={{height:"71.8vh",overflowY:"scroll",overflowX:"hidden"}}>
                 <div style={{display:"flex",flexDirection:"column"}}>
@@ -14,7 +18,7 @@ class Friends extends Component {
                     <div style={{marginTop:"-10px",height:"70vh",backgroundColor:"rgb(153, 204, 255)",overflowY:"scroll"}}>
                         {
                             
-                                friends.map((friend)=>(
+                                friends.filter(sugg=>sugg._id!==auth.user._id).map((friend)=>(
                                     <Friendlist friend={friend} key={friend._id}/>
                                 
                               ))
@@ -30,7 +34,7 @@ class Friends extends Component {
                     <div style={{height:"70vh",border:"1px solid blue",backgroundColor:"rgb(153, 204, 255)", marginTop:"-10px",overflowY:"scroll"}}>
                     {
                             
-                            suggestion.map((suggestion)=>(
+                            suggestion.filter(sugg=>sugg._id!==auth.user._id).map((suggestion)=>(
                                 <Suggestion suggestion={suggestion}/>
                             
                           ))
@@ -48,6 +52,7 @@ class Friends extends Component {
 function mapStateToProps(state){
     return {
         friends:state.friends,
+        auth:state.auth,
     };
 }
 export default connect(mapStateToProps)(Friends); 

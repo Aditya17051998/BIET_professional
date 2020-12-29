@@ -51,43 +51,7 @@ class SignIn extends Component {
              return <Redirect to="/user/home" />;
          }
         return (
-        //     <Container className="App">
-        //     <h2>Sign In</h2>
-        //     <Form className="form">
-        //       <Col>
-        //         <FormGroup>
-        //           <Label>Email</Label>
-        //           <Input
-        //             type="email"
-        //             name="email"
-        //             id="exampleEmail"
-        //             placeholder="myemail@email.com"
-        //           />
-        //         </FormGroup>
-        //       </Col>
-        //       <Col>
-        //         <FormGroup>
-        //           <Label for="examplePassword">Password</Label>
-        //           <Input
-        //             type="password"
-        //             name="password"
-        //             id="examplePassword"
-        //             placeholder="********"
-        //           />
-        //         </FormGroup>
-        //       </Col>
-        //       <Button>Submit</Button>
-        //     </Form>
-        //   </Container>
-            // <form className="SignIn">
 
-            //     <input type="email" placeholder="enter your email" onChange={this.emailHandler} value={this.state.email}/>
-            //     <input type="password" placeholder="enter your password" onChange={this.passHandler} value={this.state.password}/>
-            //     {inProgress?<button type="submit" onClick={this.handleFormSubmit} disabled>login...</button>:
-            //     <button type="submit" onClick={this.handleFormSubmit}>login</button>
-            //     }
-
-            // </form>
          <div className="signin">
                          <form className="SignIn">
                  <h1><b>Please Login First</b></h1>
@@ -97,7 +61,7 @@ class SignIn extends Component {
                     <div style={{color:"red"}}>{error}</div>
                 )}
                 {inProgress?<button type="submit" onClick={this.handleFormSubmit} disabled>login...</button>:
-                <button type="submit" onClick={this.handleFormSubmit}>Login</button>
+                <button className="btn btn-success" type="submit" onClick={this.handleFormSubmit}>Login</button>
                 }
 
             </form>

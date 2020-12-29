@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 class Suggestion extends Component {
     render() {
         const {suggestion} = this.props;
+        
         console.log('suggestion',suggestion);
         return (
             <div className="suggestion">
@@ -15,4 +16,12 @@ class Suggestion extends Component {
     }
 }
 
+// function mapStateToProps(state){
+//     return {
+//         auth:state.auth,
+//         post:state.post,
+//         friends:state.friends,
+//         suggestion:state.userslist,
+//     };
+// }
 export default Suggestion;
