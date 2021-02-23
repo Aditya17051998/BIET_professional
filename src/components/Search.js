@@ -20,6 +20,7 @@ class Search extends Component {
     //     })
     // }
     
+    
     handleChange=(e)=>{
         this.setState({
             name:e.target.value,

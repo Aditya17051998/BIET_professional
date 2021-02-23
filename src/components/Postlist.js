@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import { deletePost, fetchPosts } from '../actions/post';
 
 class Postlist extends Component {
+  
     componentDidMount() {
       this.props.dispatch(fetchPosts());
       
@@ -16,8 +17,9 @@ class Postlist extends Component {
     
       handleDelete=async (postId)=>{
       await this.props.dispatch(deletePost(postId));
-      await this.props.dispatch(fetchPosts());
+      //await this.props.dispatch(fetchPosts());
       console.log('postidhere',postId);
+      
 
     }
     render() {

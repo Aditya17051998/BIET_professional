@@ -5,6 +5,7 @@ import Friends from './Friends';
 import Postlist from './Postlist';
 import Create_post from './Create_post';
 import userslist from '../reducers/userslist';
+import searchItem from './SearchItem';
 
 
 class User_home extends Component {
@@ -18,6 +19,7 @@ class User_home extends Component {
         
         return (
           <div style={{height:"73vh",overflowY:"scroll"}}>
+               
             <Create_post />
             <Postlist post={post} />
             <Friends  friends={friends} suggestion={suggestion}/>
@@ -34,6 +36,7 @@ function mapStateToProps(state){
         post:state.post,
         friends:state.friends,
         suggestion:state.userslist,
+        search:state.search,
     };
 }
 export default connect(mapStateToProps)(User_home);

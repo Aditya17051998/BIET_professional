@@ -77,6 +77,7 @@ const Navbar_home = (props) => {
            };
  
   const {isLoggedIn,inProgress,user} =props.auth;
+  
   //src={`http://localhost:7000${user.avatar}`}
   return (
     <div>
