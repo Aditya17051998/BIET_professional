@@ -70,7 +70,7 @@ export function login(email,password){
 export function signup(email, password, confirmPassword, name,isAluminia) {
     return (dispatch) => {
       dispatch(startSingup());
-       const url = "https://biet-backend.herokuapp.com/api/v2/users/signup";
+       const url = "https://biet-backend.herokuapp.com/api/v1/user/signup";
       //const url="http://localhost:7000/api/v1/user/signup";
       fetch(url, {
         method: 'POST',
