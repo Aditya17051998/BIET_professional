@@ -10,7 +10,7 @@ export function searchResult(searchName){
         dispatch(search_result_start());
         //console.log('fetchPost.dispatch',dispatch);
         // const url = `http://codeial.com:8000/api/v2/users/search?text=${searchName}`;
-        const url=`http://localhost:7000/api/v1/user/search?text=${searchName}`;
+        const url=`https://biet-backend.herokuapp.com/api/v1/user/search?text=${searchName}`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             //method:'POST',

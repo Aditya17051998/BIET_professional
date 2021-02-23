@@ -20,7 +20,7 @@ export function fetchPosts() {
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
         // const url = 'http://codeial.com:8000/api/v2/posts?page=1&limit=5';
-        const url=`http://localhost:7000/api/v1/post/`
+        const url=`https://biet-backend.herokuapp.com/api/v1/post/`
         //const url = APIurls.fetchPosts(1,6);
         fetch(url)
         .then((response) => {
@@ -37,7 +37,7 @@ export function createPost(content) {
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
         // const url = 'http://codeial.com:8000/api/v2/posts/create';
-        const url=`http://localhost:7000/api/v1/post/create`
+        const url=`https://biet-backend.herokuapp.com/api/v1/post/create`
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             method:'POST',
@@ -69,7 +69,7 @@ export function deletePost(postId) {
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
         // const url = 'http://codeial.com:8000/api/v2/posts?page=1&limit=5';
-        const url=`http://localhost:7000/api/v1/post/${postId}`;
+        const url=`https://biet-backend.herokuapp.com/api/v1/post/${postId}`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             method:'DELETE',

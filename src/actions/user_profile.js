@@ -8,7 +8,7 @@ export function getUserProfile(userId){
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
         // const url = `http://codeial.com:8000/api/v2/users/${userId}`;
-        const url=`http://localhost:7000/api/v1/user/profile/${userId}`;
+        const url=`https://biet-backend.herokuapp.com/api/v1/user/profile/${userId}`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             headers:{

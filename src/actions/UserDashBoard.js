@@ -2,7 +2,7 @@ import {FETCH_ALUMINI, FETCH_USERS,FETCH_DASHBOARD} from '../actions/actiontype'
 export function fetchUsers(){
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
-        const url = `http://localhost:7000/api/v1/user/fetch?admin=false`;
+        const url = `https://biet-backend.herokuapp.com/api/v1/user/fetch?admin=false`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             headers:{
@@ -24,7 +24,7 @@ export function fetchUsers(){
 export function fetchDashboard(year){
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
-        const url=`http://localhost:7000/api/v1/user/sorted/${year}`
+        const url=`https://biet-backend.herokuapp.com/api/v1/user/sorted/${year}`
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             headers:{
@@ -46,7 +46,7 @@ export function fetchDashboard(year){
 export function fetchAlumini(){
     return (dispatch) => {
         //console.log('fetchPost.dispatch',dispatch);
-        const url = `http://localhost:7000/api/v1/user/fetch?admin=true`;
+        const url = `https://biet-backend.herokuapp.com/api/v1/user/fetch?admin=true`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             headers:{

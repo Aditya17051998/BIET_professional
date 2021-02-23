@@ -45,7 +45,7 @@ export function login(email,password){
     return (dispatch)=>{
         dispatch(startLogin());
         //const url="http://codeial.com:8000/api/v2/users/login";
-        const url="http://localhost:7000/api/v1/user/create-session";
+        const url="https://biet-backend.herokuapp.com/api/v1/user/create-session";
         fetch(url,{
             method:'POST',
             headers:{
@@ -166,7 +166,7 @@ export function signup(email, password, confirmPassword, name,isAluminia) {
   export function editProfile(name,image,UserId,skills,year){
     return (dispatch)=>{
       // const url='http://codeial.com:8000/api/v2/users/edit';
-      const url=`http://localhost:7000/api/v1/user/edit/${UserId}`
+      const url=`https://biet-backend.herokuapp.com/api/v1/user/edit/${UserId}`
       var data=new FormData();
       data.append('avatar',image);
       data.append('name',name);

@@ -9,7 +9,7 @@ export function fetchFriends(){
         //dispatch(search_result_start());
         //console.log('fetchPost.dispatch',dispatch);
         // const url = `http://codeial.com:8000/api/v2/friendship/fetch_user_friends`;
-        const url='http://localhost:7000/api/v1/friend/fetch_user_friends';
+        const url='https://biet-backend.herokuapp.com/api/v1/friend/fetch_user_friends';
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             //method:'POST',
@@ -43,7 +43,7 @@ export function addFriends(userId){
         //dispatch(search_result_start());
         //console.log('fetchPost.dispatch',dispatch);
         // const url = `http://codeial.com:8000/api/v2/friendship/create_friendship?user_id=${userId}`;
-        const url=`http://localhost:7000/api/v1/friend/create_friendship?user_id=${userId}`;
+        const url=`https://biet-backend.herokuapp.com/api/v1/friend/create_friendship?user_id=${userId}`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             method:'POST',
@@ -75,7 +75,7 @@ export function removeFriends(userId){
         //dispatch(search_result_start());
         //console.log('fetchPost.dispatch',dispatch);
         // const url = `http://codeial.com:8000/api/v2/friendship/create_friendship?user_id=${userId}`;
-        const url=`http://localhost:7000/api/v1/friend/remove_friendship?user_id=${userId}`;
+        const url=`https://biet-backend.herokuapp.com/api/v1/friend/remove_friendship?user_id=${userId}`;
         //const url = APIurls.fetchPosts(1,6);
         fetch(url,{
             method:'POST',
